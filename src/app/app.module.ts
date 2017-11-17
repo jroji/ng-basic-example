@@ -1,14 +1,20 @@
+import { mainReducer } from './state-management/main.reducer';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule } from '@angular/core'; 
+import { StoreModule } from "@ngrx/store";
 import { AppComponent } from './app.component';
+import { CounterviewComponent } from './counterview/counterview.component';
 
-@NgModule({
+const reducer = {counter: mainReducer};
+
+@NgModule({ 
   declarations: [
-    AppComponent
+    AppComponent,
+    CounterviewComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot(reducer)
   ],
   providers: [],
   bootstrap: [AppComponent]
